@@ -1,0 +1,19 @@
+"mythread2" prio=5 tid=0x00007f8d1d836800 nid=0x3a03 waiting for monitor entry [0x000070000fd42000]
+      java.lang.Thread.State: BLOCKED (on object monitor)
+           at ch12.Test$T.run(Test.java:36)
+           - waiting to lock <0x00000007aab0eb78> (a java.lang.Object)
+           at java.lang.Thread.run(Thread.java:745)
+   
+      Locked ownable synchronizers:
+           - None
+   
+"mythread1" prio=5 tid=0x00007f8d1f001000 nid=0x3903 waiting on condition [0x000070000fc3f000]                                                            
+      java.lang.Thread.State: TIMED_WAITING (sleeping)
+           at java.lang.Thread.sleep(Native Method)
+           at ch12.Test$T.run(Test.java:36)
+           - locked <0x00000007aab0eb78> (a java.lang.Object)
+           at java.lang.Thread.run(Thread.java:745)
+   
+      Locked ownable synchronizers:
+           - None
+

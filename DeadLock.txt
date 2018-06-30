@@ -1,0 +1,47 @@
+"mythread2" prio=5 tid=0x00007fde1a81f000 nid=0x5603 waiting for monitor entry [0x0000700008d35000]
+  9    java.lang.Thread.State: BLOCKED (on object monitor)
+  8         at ch12.Test$T.run(Test.java:57)
+  7         - waiting to lock <0x00000007aae9f760> (a java.lang.Object)
+  6         - locked <0x00000007aae9f750> (a java.lang.Object)
+  5         at java.lang.Thread.run(Thread.java:745)
+  4 
+  3    Locked ownable synchronizers:
+  2         - None
+  1 
+20  "mythread1" prio=5 tid=0x00007fde190dc000 nid=0xa703 waiting for monitor entry [0x0000700008c32000]                                                       
+  1    java.lang.Thread.State: BLOCKED (on object monitor)
+  2         at ch12.Test$T.run(Test.java:47)
+  3         - waiting to lock <0x00000007aae9f750> (a java.lang.Object)
+  4         - locked <0x00000007aae9f760> (a java.lang.Object)
+  5         at java.lang.Thread.run(Thread.java:745)
+  6 
+  7    Locked ownable synchronizers:
+  8         - None
+
+
+
+
+Found one Java-level deadlock:
+ 22 =============================
+ 21 "mythread2":
+ 20   waiting to lock monitor 0x00007fde18017498 (object 0x00000007aae9f760, a java.lang.Object),
+ 19   which is held by "mythread1"
+ 18 "mythread1":
+ 17   waiting to lock monitor 0x00007fde18017758 (object 0x00000007aae9f750, a java.lang.Object),
+ 16   which is held by "mythread2"
+ 15
+ 14 Java stack information for the threads listed above:
+ 13 ===================================================
+ 12 "mythread2":
+ 11         at ch12.Test$T.run(Test.java:57)
+ 10         - waiting to lock <0x00000007aae9f760> (a java.lang.Object)
+  9         - locked <0x00000007aae9f750> (a java.lang.Object)
+  8         at java.lang.Thread.run(Thread.java:745)
+  7 "mythread1":
+  6         at ch12.Test$T.run(Test.java:47)
+  5         - waiting to lock <0x00000007aae9f750> (a java.lang.Object)
+  4         - locked <0x00000007aae9f760> (a java.lang.Object)
+  3         at java.lang.Thread.run(Thread.java:745)
+  2
+  1 Found 1 deadlock.
+
